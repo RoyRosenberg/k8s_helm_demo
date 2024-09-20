@@ -1,3 +1,5 @@
+using K8S.WebApp.Models;
+
 internal class Program
 {
     private static void Main(string[] args)
@@ -6,7 +8,7 @@ internal class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
-
+        builder.Services.Configure<RedisSetting>(builder.Configuration.GetSection("Redis"));
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
