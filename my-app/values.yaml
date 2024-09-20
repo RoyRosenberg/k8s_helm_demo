@@ -105,3 +105,14 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Configuration for Redis
+redis:
+  enabled: true
+  image:
+    repository: redis/redis-stack
+    tag: latest  # Update this to the desired version
+    pullPolicy: IfNotPresent
+  service:
+    type: NodePort
+    port: 6379
