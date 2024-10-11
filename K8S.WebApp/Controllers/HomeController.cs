@@ -28,7 +28,7 @@ namespace K8S.WebApp.Controllers
             }
             catch (Exception ex)
             {
-                ViewData["Data"] = ex.Message;
+                ViewData["Data"] = $"{redisOptions.Value.Server}:{redisOptions.Value.Port} => {ex.Message}";
             }
             return View();
         }

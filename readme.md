@@ -3,13 +3,39 @@ Simple example of an Asp.net core applciation and Redis server in K8S and Helm
 
 # Web Server
 A simple web server that connects to Redis and look for _foo_ variable
+To create the Docker image, run the following command:
+```
+docker build -t web-server:5.0 -f K8S.WebApp\Dockerfile .
+```
 
 # Helm Charts
-## Redis
-Helm charts for Redis
 
 ## Web-Server
 Helm Charts for the web server
+The helm chart under .config/web-app folder
+Install it, using Helm:
+```
+helm install web-app ./web-app --namespace my-app-ns
+```
+
+## Redis-Stack
+This instance of Redis contains a UI under 8001, to install it, using Helm:
+```
+helm install redis-stack ./redis-stack --namespace my-app-ns
+```
+Redit UI will be available in http://redis-stack.my-app.local/
+
+Note: Make sure to set hosts file:
+```
+127.0.0.1	redis-stack.my-app.local 
+```
+Also stop IIS in case it's started.
+
+----------
+# OLD
+
+## Redis
+Helm charts for Redis
 
 # Steps
 ## Step 1: Build the image
@@ -31,6 +57,12 @@ Invoke the following _helm_ command to deploy web server to my-app namespace in 
 
 ```
 helm upgrade --install web-server ./web-server --namespace my-app
+```
+
+You can invoke the following command to see the heml result before publishing
+
+```
+helm template ./web-server --namespace my-app
 ```
 
 ## Step 4: Make sure all is working

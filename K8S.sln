@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "K8S.WebApp", "K8S.WebApp\K8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{484A08B4-038A-46EA-A5DE-A67FB4DA1B93}"
 	ProjectSection(SolutionItems) = preProject
-		backend-deployment.yaml = backend-deployment.yaml
-		backend-service.yaml = backend-service.yaml
 		readme.md = readme.md
 	EndProjectSection
 EndProject
